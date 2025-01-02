@@ -637,8 +637,7 @@ export class GlobalPythonKernelSpecFinder implements IDisposable {
                     // Then don't hide it.
                     if (
                         !registrationInfo &&
-                        item.kernelSpec.language === PYTHON_LANGUAGE &&
-                        !isDefaultKernelSpec(item.kernelSpec)
+                        item.kernelSpec.language === PYTHON_LANGUAGE
                     ) {
                         return true;
                     }

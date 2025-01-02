@@ -33,11 +33,11 @@ export function registerTypes(serviceManager: IServiceManager, isDevMode: boolea
         ILocalNotebookKernelSourceSelector,
         LocalNotebookKernelSourceSelector
     );
-    serviceManager.addSingleton<ILocalPythonNotebookKernelSourceSelector>(
-        ILocalPythonNotebookKernelSourceSelector,
-        LocalPythonEnvNotebookKernelSourceSelector
-    );
-    serviceManager.addBinding(ILocalPythonNotebookKernelSourceSelector, IExtensionSyncActivationService);
+    // serviceManager.addSingleton<ILocalPythonNotebookKernelSourceSelector>(
+    //     ILocalPythonNotebookKernelSourceSelector,
+    //     LocalPythonEnvNotebookKernelSourceSelector
+    // );
+    // serviceManager.addBinding(ILocalPythonNotebookKernelSourceSelector, IExtensionSyncActivationService);
     serviceManager.addSingleton<IExtensionSyncActivationService>(
         IExtensionSyncActivationService,
         KernelSourceCommandHandler

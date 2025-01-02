@@ -75,10 +75,10 @@ export function registerTypes(context: IExtensionContext, serviceManager: IServi
     registerDevToolTypes(context, isDevMode);
 
     // User jupyter server url provider
-    serviceManager.addSingleton<IExtensionSyncActivationService>(
-        IExtensionSyncActivationService,
-        UserJupyterServerUrlProvider
-    );
+    // serviceManager.addSingleton<IExtensionSyncActivationService>(
+    //     IExtensionSyncActivationService,
+    //     UserJupyterServerUrlProvider
+    // );
 
     serviceManager.addSingleton<IExtensionSyncActivationService>(
         IExtensionSyncActivationService,

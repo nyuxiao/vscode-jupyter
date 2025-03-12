@@ -717,7 +717,7 @@ export namespace DataScience {
         l10n.t('File(s): {0} might need to be renamed.', files);
     export const failedToGetVersionOfPandas = l10n.t('Failed to get version of Pandas to use the Data Viewer.');
     export const failedToInstallPandas = l10n.t('Failed to install Pandas to use the Data Viewer.');
-    export const localKernelSpecs = l10n.t('Jupyter Kernel...');
+    export const localKernelSpecs = l10n.t('Other Environments...');
 
     export const localPythonEnvironments = l10n.t('Python Environments...');
     export const quickPickTitleForSelectionOfJupyterServer = l10n.t('Select a Jupyter Server');

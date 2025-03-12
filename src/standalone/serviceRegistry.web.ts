@@ -16,7 +16,7 @@ import { IExtensionContext } from '../platform/common/types';
 import { registerTypes as registerIntellisenseTypes } from './intellisense/serviceRegistry.web';
 import { PythonExtensionRestartNotification } from './notification/pythonExtensionRestartNotification';
 import { ImportTracker } from './import-export/importTracker';
-import { UserJupyterServerUrlProvider } from './userJupyterServer/userServerUrlProvider';
+// import { UserJupyterServerUrlProvider } from './userJupyterServer/userServerUrlProvider';
 import { JupyterServerSelectorCommand } from './userJupyterServer/serverSelectorForTests';
 import { CommandRegistry as CodespaceCommandRegistry } from './codespace/commandRegistry';
 import { EagerlyActivateJupyterUriProviders } from './api/unstable/activateJupyterProviderExtensions';
@@ -75,10 +75,10 @@ export function registerTypes(context: IExtensionContext, serviceManager: IServi
     registerDevToolTypes(context, isDevMode);
 
     // User jupyter server url provider
-    serviceManager.addSingleton<IExtensionSyncActivationService>(
-        IExtensionSyncActivationService,
-        UserJupyterServerUrlProvider
-    );
+    // serviceManager.addSingleton<IExtensionSyncActivationService>(
+    //     IExtensionSyncActivationService,
+    //     UserJupyterServerUrlProvider
+    // );
 
     serviceManager.addSingleton<IExtensionSyncActivationService>(
         IExtensionSyncActivationService,

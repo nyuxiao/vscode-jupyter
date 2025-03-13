@@ -79,7 +79,6 @@ export class KernelSourceCommandHandler implements IExtensionSyncActivationServi
                         return [
                             {
                                 label: DataScience.localPythonEnvironments,
-                                documentation: Uri.parse('https://aka.ms/vscodeJupyterExtKernelPickerPythonEnv'),
                                 command: 'jupyter.kernel.selectLocalPythonEnvironment'
                             }
                         ];
@@ -92,7 +91,6 @@ export class KernelSourceCommandHandler implements IExtensionSyncActivationServi
                         return [
                             {
                                 label: DataScience.localPythonEnvironments,
-                                documentation: Uri.parse('https://aka.ms/vscodeJupyterExtKernelPickerPythonEnv'),
                                 command: 'jupyter.kernel.selectLocalPythonEnvironment'
                             }
                         ];
@@ -130,7 +128,6 @@ export class KernelSourceCommandHandler implements IExtensionSyncActivationServi
                     kernelSpecActions = [
                         {
                             label: DataScience.localKernelSpecs,
-                            documentation: Uri.parse('https://aka.ms/vscodeJupyterExtKernelPickerJupyterKernels'),
                             command: 'jupyter.kernel.selectLocalKernelSpec'
                         }
                     ];

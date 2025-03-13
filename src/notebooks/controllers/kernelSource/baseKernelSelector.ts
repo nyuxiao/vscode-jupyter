@@ -112,9 +112,13 @@ export class BaseKernelSelector extends DisposableBase implements IDisposable {
         const items = this.provider.kernels.map((connection) => this.connectionToQuickPick(connection));
         this.quickPickItems.push({
             kind: QuickPickItemKind.Separator,
-            label: DataScience.kernelCategoryForJupyterKernel
+            label: ''
         });
+
         items.sort((a, b) => a.label.localeCompare(b.label));
+        items.forEach(item => {
+            item.description = ""
+        })
         this.quickPickItems.push(...items);
         this.existingItems = new Set(items);
 
@@ -228,7 +232,9 @@ export class BaseKernelSelector extends DisposableBase implements IDisposable {
         const newItems = Array.from(currentItemsInCategory);
         newItems.sort((a, b) => a.label.localeCompare(b.label));
         this.quickPickItems.splice(indexOfExistingCategory + 1, oldItemCount, ...newItems);
-
+        quickPick.items.forEach(item => {
+            item.description = ""
+        })
         this.rebuildQuickPickItems(quickPick);
     }
     private rebuildQuickPickItems(quickPick: QuickPick<CompoundQuickPickItem>) {
@@ -273,6 +279,9 @@ export class BaseKernelSelector extends DisposableBase implements IDisposable {
                 }
             });
             this.quickPickItems = this.quickPickItems.filter((item) => !itemsRemoved.includes(item));
+            quickPick.items.forEach(item => {
+                item.description = ""
+            })
             this.rebuildQuickPickItems(quickPick);
         }
     }
@@ -294,6 +303,9 @@ export class BaseKernelSelector extends DisposableBase implements IDisposable {
         } else {
             this.recommendedItems.push(recommendedItem);
         }
+        quickPick.items.forEach(item => {
+            item.description = ""
+        })
         this.rebuildQuickPickItems(quickPick);
     }
     /**
@@ -317,10 +329,14 @@ export class BaseKernelSelector extends DisposableBase implements IDisposable {
             item.label = this.connectionToQuickPick(kernel, item.isRecommended).label;
             item.tooltip = this.connectionToQuickPick(kernel, item.isRecommended).tooltip;
             item.detail = this.connectionToQuickPick(kernel, item.isRecommended).detail;
-            item.description = this.connectionToQuickPick(kernel, item.isRecommended).description;
+            // item.description = this.connectionToQuickPick(kernel, item.isRecommended).description;
             item.isRecommended = this.connectionToQuickPick(kernel, item.isRecommended).isRecommended;
             item.connection = kernel; // Possible some other information since then has changed, hence keep the connection up to date.
         });
+        quickPick.items.forEach(item => {
+            item.description = ""
+        })
+
         this.rebuildQuickPickItems(quickPick);
     }
 
@@ -337,13 +353,13 @@ export class BaseKernelSelector extends DisposableBase implements IDisposable {
         ) => {
             info.label = `${icon}${e.label}`;
             info.detail = e.detail;
-            info.description = e.description;
+            info.description = "";
 
             this.quickPickItems.forEach((q) => {
                 if ('connection' in q && q.connection.id === connection.id) {
                     q.label = e.label;
                     q.detail = e.detail;
-                    q.description = e.description;
+                    q.description = "";
                 }
             });
         };
